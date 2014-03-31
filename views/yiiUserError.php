@@ -16,8 +16,11 @@ switch($errorCode)
 	break;
 }
 ?>
-<div class="form">
-	<div class="errorSummary">
+<div class="nonboxy-widget" style="margin:0 5px;">
+	<div class="widget-head">
+		<h5>Account Creation</h5>
+	</div>
+	<div class="widget-content">
 		<p><b><?= HOAuthAction::t('Sorry, but your account') ?> <?php echo $error; ?>!</b></p>
 		<p>
 			<?php
