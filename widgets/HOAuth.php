@@ -36,6 +36,8 @@ class HOAuth extends CWidget
 	 */
 	public $popupHeight = 680;
 
+	public $user;
+
 	public function init()
 	{
 		if(!$this->route)
@@ -53,12 +55,20 @@ class HOAuth extends CWidget
 			'id' => 'hoauthWidget' . $this->id,
 			'class' => 'hoauthWidget',
 			));
+		$linkedArray = array();
+		if ($this->user){
+			$userOAuths = UserOAuth::model()->findUser($this->user->primaryKey);
+			foreach($userOAuths as $userOAuth){
+				$linkedArray[] = $userOAuth->attributes['provider'];
+			}
+		}
+		
 
-		foreach($config['providers'] as $provider => $settings)
-			if($settings['enabled'])
-				$this->render('link', array(
-					'provider' => $provider,
-				));
+			foreach($config['providers'] as $provider => $settings)
+				if($settings['enabled'] && !in_array($provider, $linkedArray))
+					$this->render('link', array(
+						'provider' => $provider,
+						));
 
 		echo CHtml::closeTag('div');
 	}
