@@ -297,7 +297,7 @@ class HUserInfoForm extends CFormModel {
 			$this->_form = new CForm(array(
 				'id' => strtolower(__CLASS__),
 				'elements' => array(
-					'<div class="form">',
+					'<div class="form well-login col-xs-12">',
 					$this->header,
 					'username' => array(
 						'type' => 'text',
@@ -312,6 +312,7 @@ class HUserInfoForm extends CFormModel {
 				'buttons'=>array(
 					'submit'=>array(
 						'type'=>'submit',
+						'class' => 'btn btn-success',
 						'label'=>HOAuthAction::t('Submit'),
 						),
 					'</div>',
