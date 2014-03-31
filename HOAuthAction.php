@@ -340,9 +340,6 @@ class HOAuthAction extends CAction
 		if($this->useYiiUser)
 		{
 			$profile = new Profile();
-			// enabling register mode
-			// old versions of yii
-			$profile->regMode = true;
 			// new version, when regMode is static property
 			$prop = new ReflectionProperty('Profile', 'regMode');
 			if($prop->isStatic())
