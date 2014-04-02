@@ -21,7 +21,7 @@ Yii::app()->clientScript->registerCSSFile(Yii::app()->theme->baseUrl . '/css/log
 	}
 	
 	label{
-		width: 70px;
+		width: 85px;
 	}
 
 	.login-container input[type="text"],
